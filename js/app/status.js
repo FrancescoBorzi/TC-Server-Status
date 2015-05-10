@@ -3,6 +3,8 @@
 
   app.controller("StatusController", function($scope, $http) {
 
+    $scope.serverName = app.serverName;
+
     var request = app.api + "online";
 
     $http.get( request )
@@ -12,16 +14,19 @@
 
       if ($scope.onlinePlayers > 0) {
         $scope.players = data;
+        $scope.allianceCount = 0;
+        $scope.hordeCount = 0;
 
         $scope.players.forEach(function(player) {
 
-          switch (player.race) {
+          switch (parseInt(player.race)) {
             case 2:
             case 5:
             case 6:
             case 8:
             case 9:
             case 10:
+              $scope.hordeCount++;
               player.faction = "horde";
               break;
 
@@ -30,6 +35,7 @@
             case 4:
             case 7:
             case 11:
+              $scope.allianceCount++;
               player.faction = "alliance";
               break;
           }
