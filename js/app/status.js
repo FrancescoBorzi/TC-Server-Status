@@ -10,6 +10,7 @@
     $scope.serverName = app.serverName;
 
     var request = app.api + "online";
+    $scope.map  = app.map;
     $scope.apiLoaded = true;
 
     $http.get( request )

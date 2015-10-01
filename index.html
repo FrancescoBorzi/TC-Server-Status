@@ -15,7 +15,7 @@
     <script src="js/lib/angular-tablesort.js"></script>
     <script src="js/app/status.js"></script>
     <script src="config.js"></script>
-
+    <script src="js/app/maps.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/loading-bar.min.css">
     <link rel="stylesheet" href="css/tablesort.css">
@@ -47,6 +47,7 @@
             <th class="text-center" ts-criteria="faction|lowercase">Faction</th>
             <th class="text-center" ts-criteria="level|parseInt">Level</th>
             <th class="text-center" ts-criteria="guildName|lowercase">Guild</th>
+            <th class="text-center" ts-criteria="map|lowercase">Map</th>
           </thead>
           <tbody>
             <tr ng-repeat="player in players" ng-class="player.faction" ts-repeat>
@@ -56,6 +57,7 @@
               <td><img ng-src="img/{{ player.faction }}_min.png"></td>
               <td><strong>{{ player.level }}</strong></td>
               <td><strong>{{ player.guildName }}</strong></td>
+              <td><strong>{{ map[player.zone] }}</strong></td>
             </tr>
           </tbody>
         </table>
