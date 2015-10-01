@@ -10,11 +10,11 @@
     $scope.serverName = app.serverName;
 
     var request = app.api + "online";
+    $scope.apiLoaded = true;
 
     $http.get( request )
       .success(function(data, status, header, config) {
 
-      $scope.apiLoaded = true;
       $scope.onlinePlayers = data.length;
 
       if ($scope.onlinePlayers > 0) {
