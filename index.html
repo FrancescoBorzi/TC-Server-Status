@@ -39,28 +39,30 @@
           <img src="img/horde_medium.png">
         </p>
         <br>
-        <table class="table table-striped table-bordered" ts-wrapper>
-          <thead>
-            <th class="text-center" ts-criteria="name|lowercase" ts-default="ascending">Character</th>
-            <th class="text-center" ts-criteria="class|parseInt">Class</th>
-            <th class="text-center" ts-criteria="race|parseInt">Race</th>
-            <th class="text-center" ts-criteria="faction|lowercase">Faction</th>
-            <th class="text-center" ts-criteria="level|parseInt">Level</th>
-            <th class="text-center" ts-criteria="guildName|lowercase">Guild</th>
-            <th class="text-center" ts-criteria="zone|parseInt">Map</th>
-          </thead>
-          <tbody>
-            <tr ng-repeat="player in players" ng-class="player.faction" ts-repeat>
-              <td><strong>{{ player.name }}</strong></td>
-              <td><img ng-src="img/class/{{ player.class }}.gif"></td>
-              <td><img ng-src="img/race/{{ player.race }}-{{ player.gender }}.gif"></td>
-              <td><img ng-src="img/{{ player.faction }}_min.png"></td>
-              <td><strong>{{ player.level }}</strong></td>
-              <td><strong>{{ player.guildName }}</strong></td>
-              <td><strong>{{ map[player.zone] }}</strong></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered" ts-wrapper>
+            <thead>
+              <th class="text-center" ts-criteria="name|lowercase" ts-default="ascending">Character</th>
+              <th class="text-center" ts-criteria="class|parseInt">Class</th>
+              <th class="text-center" ts-criteria="race|parseInt">Race</th>
+              <th class="text-center" ts-criteria="faction|lowercase">Faction</th>
+              <th class="text-center" ts-criteria="level|parseInt">Level</th>
+              <th class="text-center" ts-criteria="guildName|lowercase">Guild</th>
+              <th class="text-center" ts-criteria="zone|parseInt">Map</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="player in players" ng-class="player.faction" ts-repeat>
+                <td><strong>{{ player.name }}</strong></td>
+                <td><img ng-src="img/class/{{ player.class }}.gif"></td>
+                <td><img ng-src="img/race/{{ player.race }}-{{ player.gender }}.gif"></td>
+                <td><img ng-src="img/{{ player.faction }}_min.png"></td>
+                <td><strong>{{ player.level }}</strong></td>
+                <td><strong>{{ player.guildName }}</strong></td>
+                <td><strong>{{ map[player.zone] }}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div ng-hide="apiLoaded">
         <p class="lead h4 text-danger">ERROR: API not found, please edit your config.js file and set the path of your TrinityCore JSON API istance.</p>
