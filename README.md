@@ -24,4 +24,4 @@ and the name of your server:
 
 ### License
 
-The TrinityCore Server Status is open-sourced software licensed under the [GNU GPL license](https://github.com/ShinDarth/TC-Server-Status/blob/master/LICENSE).
+The TrinityCore Server Status is open-sourced software licensed under the [GNU AGPL license](https://github.com/ShinDarth/TC-Server-Status/blob/master/LICENSE).
