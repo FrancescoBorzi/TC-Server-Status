@@ -8,8 +8,10 @@
   app.controller("StatusController", function($scope, $http) {
 
     $scope.serverName = app.serverName;
+    $scope.pulseTime  = app.pulseTime;
 
-    var request = app.api + "online";
+    var request = app.api + "online",
+        pulse   = app.api + "pulse/" + app.pulseTime;
     $scope.map  = app.map;
     $scope.apiLoaded = true;
 
@@ -53,6 +55,20 @@
       .error(function(data, status, header, config) {
       $scope.apiLoaded = false;
       console.log("Error while retrieving online players.");
+    });
+
+    $http.get( pulse )
+      .success(function(data, status, header, config) {
+
+      if (data.length > 0) {
+        $scope.accounts = data[0].accounts;
+        $scope.IPs      = data[0].IPs;
+      } else {
+        console.log("Error: no data while retrieving pulse.");
+      }
+    })
+      .error(function(data, status, header, config) {
+      console.log("Error while retrieving pulse. API outdated?");
     });
 
   });

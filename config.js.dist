@@ -9,6 +9,10 @@
   /* Edit with path of TC-JSON-API */
   app.api = "../TC-JSON-API/public/index.php/";
 
+  /* Your server name */
   app.serverName = "TrinityCore";
+
+  /* Pulse time diff in days */
+  app.pulseTime = 7;
 
 }());

@@ -32,6 +32,7 @@
       <p class="h2">{{ serverName }} Server Status</p>
       <br>
       <div ng-show="apiLoaded">
+        <p class="h6 text-muted"><strong>{{ accounts }}</strong> active accounts from <strong>{{ IPs }}</strong> different IPs in last <strong>{{ pulseTime }}</strong> days</p>
         <p class="lead h4">There are {{ onlinePlayers }} players online</p>
         <p class="h4">
           <img src="img/alliance_medium.png">
